@@ -17,6 +17,8 @@
 
             <include layout="@layout/item_question_1" />
 
+            <include layout="@layout/item_question_2" />
+
             <include layout="@layout/item_question_3" />
 
             <include layout="@layout/item_question_4" />

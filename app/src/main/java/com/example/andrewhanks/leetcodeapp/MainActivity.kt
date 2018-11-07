@@ -14,6 +14,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question1Button: Button
     private lateinit var question1Result: TextView
 
+    // layout for question 2
+    private lateinit var question2Input1: EditText
+    private lateinit var question2Input2: EditText
+    private lateinit var question2Button: Button
+    private lateinit var question2Result: TextView
+
     // layout for question 3
     private lateinit var question3Input: EditText
     private lateinit var question3Button: Button
@@ -35,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setupQuestion1()
+        setupQuestion2()
         setupQuestion3()
         setupQuestion4()
         setupQuestion11()
@@ -72,6 +79,57 @@ class MainActivity : AppCompatActivity() {
             question1Result.text = result
         }
         question1Result = findViewById(R.id.question_1_result)
+    }
+
+    private fun setupQuestion2() {
+        question2Input1 = findViewById(R.id.question_2_input_1)
+        question2Input2 = findViewById(R.id.question_2_input_2)
+        question2Button = findViewById(R.id.question_2)
+        question2Button.setOnClickListener {
+            var listNode1 = ListNode()
+            var listNode2 = ListNode()
+            if (question2Input1.text.isBlank() || question2Input2.text.isBlank()) {
+
+                listNode1.`val` = 2
+                listNode1.next = ListNode(4)
+                listNode1.next!!.next = ListNode(3)
+
+                listNode2.`val` = 5
+                listNode2.next = ListNode(6)
+                listNode2.next!!.next = ListNode(4)
+
+            } else {
+                val stringArray1 = question2Input1.text.toString()
+                        .replace(" ", "").split(",")
+                val stringArray2 = question2Input2.text.toString()
+                        .replace(" ", "").split(",")
+
+                listNode1 = ListNode(stringArray1[0].toInt())
+                var tempListNode1 = listNode1
+                for (count in 1..stringArray1.size - 1) {
+                    tempListNode1 = tempListNode1.next!!
+                    tempListNode1 = ListNode(stringArray1[count].toInt())
+                }
+                listNode2 = ListNode(stringArray2[0].toInt())
+                var tempListNode2 = listNode2
+                for (count in 1..stringArray1.size - 1) {
+                    tempListNode2 = tempListNode2.next!!
+                    tempListNode2 = ListNode(stringArray1[count].toInt())
+                }
+            }
+            val resultListNode = Question002AddTwoNumbers.addTwoNumbers(listNode1, listNode2)
+            var tempResultList = resultListNode
+            var result = "[" + tempResultList!!.`val`.toString()
+            tempResultList = tempResultList.next
+            while (null != tempResultList!!.next) {
+                result = result + "," + tempResultList.`val`
+                tempResultList = tempResultList.next
+            }
+            result = result + "," + tempResultList.`val`
+            result += "]"
+            question2Result.text = result
+        }
+        question2Result = findViewById(R.id.question_2_result)
     }
 
     private fun setupQuestion3() {
