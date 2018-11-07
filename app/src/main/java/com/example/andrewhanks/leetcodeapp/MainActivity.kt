@@ -19,6 +19,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question3Button: Button
     private lateinit var question3Result: TextView
 
+    // layout for question 4
+    private lateinit var question4Input1: EditText
+    private lateinit var question4Input2: EditText
+    private lateinit var question4Button: Button
+    private lateinit var question4Result: TextView
+
     // layout for question 11
     private lateinit var question11Input: EditText
     private lateinit var question11Button: Button
@@ -30,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         setupQuestion1()
         setupQuestion3()
+        setupQuestion4()
         setupQuestion11()
     }
 
@@ -44,7 +51,8 @@ class MainActivity : AppCompatActivity() {
                 numberArray = intArrayOf(2, 7, 11, 15)
                 numberSum = 9
             } else {
-                val stringArray = question1Input1.text.toString().split(",")
+                val stringArray = question1Input1.text.toString()
+                        .replace(" ", "").split(",")
                 numberArray = IntArray(stringArray.size)
                 stringArray.forEachIndexed { index, s ->
                     numberArray[index] = s.toInt()
@@ -82,6 +90,37 @@ class MainActivity : AppCompatActivity() {
         question3Result = findViewById(R.id.question_3_result)
     }
 
+    private fun setupQuestion4() {
+        question4Input1 = findViewById(R.id.question_4_input_1)
+        question4Input2 = findViewById(R.id.question_4_input_2)
+        question4Button = findViewById(R.id.question_4)
+        question4Button.setOnClickListener {
+            var numberArray1: IntArray
+            val numberArray2: IntArray
+            if (question4Input1.text.isBlank() || question4Input2.text.isBlank()) {
+                numberArray1 = intArrayOf(1, 3)
+                numberArray2 = intArrayOf(2)
+            } else {
+                val stringArray1 = question4Input1.text.toString()
+                        .replace(" ", "").split(",")
+                numberArray1 = IntArray(stringArray1.size)
+                stringArray1.forEachIndexed { index, s ->
+                    numberArray1[index] = s.toInt()
+                }
+                val stringArray2 = question4Input2.text.toString()
+                        .replace(" ", "").split(",")
+                numberArray2 = IntArray(stringArray2.size)
+                stringArray2.forEachIndexed { index, s ->
+                    numberArray2[index] = s.toInt()
+                }
+            }
+            val result = Question004MedianofTwoSortedArrays
+                    .findMedianSortedArrays(numberArray1, numberArray2)
+            question4Result.text = result.toString()
+        }
+        question4Result = findViewById(R.id.question_4_result)
+    }
+
     private fun setupQuestion11() {
         question11Input = findViewById(R.id.question_11_input)
         question11Button = findViewById(R.id.question_11)
@@ -90,7 +129,8 @@ class MainActivity : AppCompatActivity() {
             if (question11Input.text.isBlank()) {
                 numberArray = intArrayOf(1, 8, 6, 2, 5, 4, 8, 3, 7)
             } else {
-                val stringArray = question11Input.text.toString().split(",")
+                val stringArray = question11Input.text.toString()
+                        .replace(" ", "").split(",")
                 numberArray = IntArray(stringArray.size)
                 stringArray.forEachIndexed { index, s ->
                     numberArray[index] = s.toInt()

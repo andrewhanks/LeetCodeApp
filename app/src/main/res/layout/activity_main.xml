@@ -19,6 +19,8 @@
 
             <include layout="@layout/item_question_3" />
 
+            <include layout="@layout/item_question_4" />
+
             <include layout="@layout/item_question_11"/>
 
         </LinearLayout>
