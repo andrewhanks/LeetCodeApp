@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
-        android:hint="[2,7,11,15]" />
+        android:hint="2,7,11,15" />
 
     <EditText
         android:id="@+id/question_1_input_2"

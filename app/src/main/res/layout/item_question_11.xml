@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
-        android:hint="[1,8,6,2,5,4,8,3,7]" />
+        android:hint="1,8,6,2,5,4,8,3,7" />
 
     <Button
         android:id="@+id/question_11"
