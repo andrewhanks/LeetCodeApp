@@ -14,6 +14,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question1Button: Button
     private lateinit var question1Result: TextView
 
+    // layout for question 3
+    private lateinit var question3Input: EditText
+    private lateinit var question3Button: Button
+    private lateinit var question3Result: TextView
+
     // layout for question 11
     private lateinit var question11Input: EditText
     private lateinit var question11Button: Button
@@ -24,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setupQuestion1()
+        setupQuestion3()
         setupQuestion11()
     }
 
@@ -60,11 +66,27 @@ class MainActivity : AppCompatActivity() {
         question1Result = findViewById(R.id.question_1_result)
     }
 
+    private fun setupQuestion3() {
+        question3Input = findViewById(R.id.question_3_input)
+        question3Button = findViewById(R.id.question_3)
+        question3Button.setOnClickListener {
+            val inputString = if (question3Input.text.isBlank()) {
+                "abcabcbb"
+            } else {
+                question3Input.text.toString()
+            }
+            val result = Question003LongestSubstringWithoutRepeatingCharacters
+                    .lengthOfLongestSubstring(inputString)
+            question3Result.text = result.toString()
+        }
+        question3Result = findViewById(R.id.question_3_result)
+    }
+
     private fun setupQuestion11() {
         question11Input = findViewById(R.id.question_11_input)
         question11Button = findViewById(R.id.question_11)
         question11Button.setOnClickListener {
-            var numberArray: IntArray
+            val numberArray: IntArray
             if (question11Input.text.isBlank()) {
                 numberArray = intArrayOf(1, 8, 6, 2, 5, 4, 8, 3, 7)
             } else {
