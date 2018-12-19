@@ -25,6 +25,8 @@
 
             <include layout="@layout/item_question_11"/>
 
+            <include layout="@layout/item_question_43" />
+
         </LinearLayout>
 
     </ScrollView>

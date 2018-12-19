@@ -36,6 +36,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question11Button: Button
     private lateinit var question11Result: TextView
 
+    // layout for question 43
+    private lateinit var question43Input1: EditText
+    private lateinit var question43Input2: EditText
+    private lateinit var question43Button: Button
+    private lateinit var question43Result: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -45,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion3()
         setupQuestion4()
         setupQuestion11()
+        setupQuestion43()
     }
 
     private fun setupQuestion1() {
@@ -198,5 +205,25 @@ class MainActivity : AppCompatActivity() {
             question11Result.text = result.toString()
         }
         question11Result = findViewById(R.id.question_11_result)
+    }
+
+    private fun setupQuestion43() {
+        question43Input1 = findViewById(R.id.question_43_input_1)
+        question43Input2 = findViewById(R.id.question_43_input_2)
+        question43Button = findViewById(R.id.question_43)
+        question43Button.setOnClickListener {
+            val stringNumber1: String
+            val stringNumber2: String
+            if (question43Input1.text.isBlank() || question43Input2.text.isBlank()) {
+                stringNumber1 = "123"
+                stringNumber2 = "456"
+            } else {
+                stringNumber1 = question43Input1.text.toString()
+                stringNumber2 = question43Input2.text.toString()
+            }
+            val result = Question043MultiplyStrings.multiply(stringNumber1, stringNumber2)
+            question43Result.text = result
+        }
+        question43Result = findViewById(R.id.question_43_result)
     }
 }
