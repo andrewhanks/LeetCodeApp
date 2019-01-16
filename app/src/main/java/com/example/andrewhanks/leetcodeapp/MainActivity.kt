@@ -31,6 +31,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question4Button: Button
     private lateinit var question4Result: TextView
 
+    // layout for question 5
+    private lateinit var question5Input: EditText
+    private lateinit var question5Button: Button
+    private lateinit var question5Result: TextView
+
     // layout for question 11
     private lateinit var question11Input: EditText
     private lateinit var question11Button: Button
@@ -50,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion2()
         setupQuestion3()
         setupQuestion4()
+        setupQuestion5()
         setupQuestion11()
         setupQuestion43()
     }
@@ -184,6 +190,21 @@ class MainActivity : AppCompatActivity() {
             question4Result.text = result.toString()
         }
         question4Result = findViewById(R.id.question_4_result)
+    }
+
+    private fun setupQuestion5() {
+        question5Input = findViewById(R.id.question_5_input)
+        question5Button = findViewById(R.id.question_5)
+        question5Button.setOnClickListener {
+            val inputString = if (question5Input.text.isBlank()) {
+                "babad"
+            } else {
+                question5Input.text.toString()
+            }
+            val result = Question005LongestPalindromicSubstring.longestPalindrome(inputString)
+            question5Result.text = result
+        }
+        question5Result = findViewById(R.id.question_5_result)
     }
 
     private fun setupQuestion11() {
