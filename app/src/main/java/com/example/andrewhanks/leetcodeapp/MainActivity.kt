@@ -47,6 +47,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question43Button: Button
     private lateinit var question43Result: TextView
 
+    // layout for question 442
+    private lateinit var question442Input: EditText
+    private lateinit var question442Button: Button
+    private lateinit var question442Result: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -58,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion5()
         setupQuestion11()
         setupQuestion43()
+        setupQuestion442()
     }
 
     private fun setupQuestion1() {
@@ -246,5 +252,29 @@ class MainActivity : AppCompatActivity() {
             question43Result.text = result
         }
         question43Result = findViewById(R.id.question_43_result)
+    }
+
+    private fun setupQuestion442() {
+        question442Input = findViewById(R.id.question_442_input)
+        question442Button = findViewById(R.id.question_442)
+        question442Button.setOnClickListener {
+            val inputIntArray = if (question442Input.text.isBlank()) {
+                "4,3,2,7,8,2,3,1".split(",").map { it.toInt() }.toIntArray()
+            } else {
+                question442Input.text.toString().split(",").map { it.toInt() }.toIntArray()
+            }
+            val resultList = Question442FindAllDuplicatesinanArray.findDuplicates(inputIntArray)
+            var result = "["
+            resultList.forEachIndexed { index, i ->
+                result += i
+                if (index == resultList.size - 1) {
+                    result += "]"
+                } else {
+                    result += ","
+                }
+            }
+            question442Result.text = result
+        }
+        question442Result = findViewById(R.id.question_442_result)
     }
 }
