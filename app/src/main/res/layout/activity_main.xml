@@ -28,6 +28,8 @@
 
             <include layout="@layout/item_question_6" />
 
+            <include layout="@layout/item_question_8" />
+
             <include layout="@layout/item_question_9" />
 
             <include layout="@layout/item_question_11" />

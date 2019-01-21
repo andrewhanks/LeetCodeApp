@@ -43,6 +43,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question6Button: Button
     private lateinit var question6Result: TextView
 
+    // layout for question 8
+    private lateinit var question8Input: EditText
+    private lateinit var question8Button: Button
+    private lateinit var question8Result: TextView
+
     // layout for question 9
     private lateinit var question9Input: EditText
     private lateinit var question9Button: Button
@@ -75,6 +80,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion5()
         setupQuestion6()
         setupQuestion9()
+        setupQuestion8()
         setupQuestion11()
         setupQuestion43()
         setupQuestion442()
@@ -246,6 +252,21 @@ class MainActivity : AppCompatActivity() {
             question6Result.text = result
         }
         question6Result = findViewById(R.id.question_6_result)
+    }
+
+    private fun setupQuestion8() {
+        question8Input = findViewById(R.id.question_8_input)
+        question8Button = findViewById(R.id.question_8)
+        question8Button.setOnClickListener {
+            val inputString = if (question8Input.text.isEmpty()) {
+                "42"
+            } else {
+                question8Input.text.toString()
+            }
+            val result = Question008StringtoInteger.myAtoi(inputString)
+            question8Result.text = result.toString()
+        }
+        question8Result = findViewById(R.id.question_8_result)
     }
 
     private fun setupQuestion9() {
