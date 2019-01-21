@@ -1,10 +1,11 @@
 package com.example.andrewhanks.leetcodeapp
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,6 +37,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question5Button: Button
     private lateinit var question5Result: TextView
 
+    // layout for question 9
+    private lateinit var question9Input: EditText
+    private lateinit var question9Button: Button
+    private lateinit var question9Result: TextView
+
     // layout for question 11
     private lateinit var question11Input: EditText
     private lateinit var question11Button: Button
@@ -61,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion3()
         setupQuestion4()
         setupQuestion5()
+        setupQuestion9()
         setupQuestion11()
         setupQuestion43()
         setupQuestion442()
@@ -211,6 +218,21 @@ class MainActivity : AppCompatActivity() {
             question5Result.text = result
         }
         question5Result = findViewById(R.id.question_5_result)
+    }
+
+    private fun setupQuestion9() {
+        question9Input = findViewById(R.id.question_9_input)
+        question9Button = findViewById(R.id.question_9)
+        question9Button.setOnClickListener {
+            val inputInt = if (question9Input.text.isBlank()) {
+                121
+            } else {
+                question9Input.text.toString().toInt()
+            }
+            val result = Question009PalindromeNumber.isPalindrome(inputInt)
+            question9Result.text = result.toString()
+        }
+        question9Result = findViewById(R.id.question_9_result)
     }
 
     private fun setupQuestion11() {
