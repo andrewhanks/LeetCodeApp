@@ -37,6 +37,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question5Button: Button
     private lateinit var question5Result: TextView
 
+    // layout for question 6
+    private lateinit var question6Input1: EditText
+    private lateinit var question6Input2: EditText
+    private lateinit var question6Button: Button
+    private lateinit var question6Result: TextView
+
     // layout for question 9
     private lateinit var question9Input: EditText
     private lateinit var question9Button: Button
@@ -67,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion3()
         setupQuestion4()
         setupQuestion5()
+        setupQuestion6()
         setupQuestion9()
         setupQuestion11()
         setupQuestion43()
@@ -218,6 +225,27 @@ class MainActivity : AppCompatActivity() {
             question5Result.text = result
         }
         question5Result = findViewById(R.id.question_5_result)
+    }
+
+    private fun setupQuestion6() {
+        question6Input1 = findViewById(R.id.question_6_input_1)
+        question6Input2 = findViewById(R.id.question_6_input_2)
+        question6Button = findViewById(R.id.question_6)
+        question6Button.setOnClickListener {
+            val inputString = if (question6Input1.text.isBlank()) {
+                "PAYPALISHIRING"
+            } else {
+                question6Input1.text.toString()
+            }
+            val inputRows = if (question6Input2.text.isBlank()) {
+                3
+            } else {
+                question6Input2.text.toString().toInt()
+            }
+            val result = Question006ZigZagConversion.convert(inputString, inputRows)
+            question6Result.text = result
+        }
+        question6Result = findViewById(R.id.question_6_result)
     }
 
     private fun setupQuestion9() {
