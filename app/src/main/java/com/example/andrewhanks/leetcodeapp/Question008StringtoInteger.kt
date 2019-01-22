@@ -74,7 +74,7 @@ class Question008StringtoInteger {
             }
         }
 
-        fun webSolutionAtoi(str: String): Int {
+        fun myAtoiWebSolution(str: String): Int {
             if (str.isBlank()) {
                 return 0
             }

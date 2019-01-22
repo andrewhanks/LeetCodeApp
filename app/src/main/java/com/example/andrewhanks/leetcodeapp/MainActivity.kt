@@ -63,6 +63,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question12Button: Button
     private lateinit var question12Result: TextView
 
+    // layout for question 15
+    private lateinit var question15Input: EditText
+    private lateinit var question15Button: Button
+    private lateinit var question15Result: TextView
+
     // layout for question 43
     private lateinit var question43Input1: EditText
     private lateinit var question43Input2: EditText
@@ -88,6 +93,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion8()
         setupQuestion11()
         setupQuestion12()
+        setupQuestion15()
         setupQuestion43()
         setupQuestion442()
     }
@@ -326,6 +332,46 @@ class MainActivity : AppCompatActivity() {
         question12Result = findViewById(R.id.question_12_result)
     }
 
+    private fun setupQuestion15() {
+        question15Input = findViewById(R.id.question_15_input)
+        question15Button = findViewById(R.id.question_15)
+        question15Button.setOnClickListener {
+            val intArray = if (question15Input.text.isBlank()) {
+                "-1,0,1,2,-1,-4"
+                        .split(',')
+                        .map { num -> num.toInt() }
+                        .toIntArray()
+            } else {
+                question15Input.text.toString()
+                        .split(',')
+                        .map { num -> num.toInt() }
+                        .toIntArray()
+            }
+            val resultList = Question0153Sum.threeSumWebSolution(intArray)
+            var result = "["
+            resultList.forEachIndexed { firstIndex, firstI ->
+                resultList[firstIndex].forEachIndexed { secondIndex, secondI ->
+                    if (0 == secondIndex) {
+                        result += "["
+                    }
+                    result += secondI
+                    if (secondIndex == resultList[firstIndex].size - 1) {
+                        result += "]"
+                    } else {
+                        result += ","
+                    }
+                }
+                if (firstIndex == resultList.size - 1) {
+                    result += "]"
+                } else {
+                    result += ","
+                }
+            }
+            question15Result.text = result
+        }
+        question15Result = findViewById(R.id.question_15_result)
+    }
+
     private fun setupQuestion43() {
         question43Input1 = findViewById(R.id.question_43_input_1)
         question43Input2 = findViewById(R.id.question_43_input_2)
@@ -351,9 +397,15 @@ class MainActivity : AppCompatActivity() {
         question442Button = findViewById(R.id.question_442)
         question442Button.setOnClickListener {
             val inputIntArray = if (question442Input.text.isBlank()) {
-                "4,3,2,7,8,2,3,1".split(",").map { it.toInt() }.toIntArray()
+                "4,3,2,7,8,2,3,1"
+                        .split(",")
+                        .map { num -> num.toInt() }
+                        .toIntArray()
             } else {
-                question442Input.text.toString().split(",").map { it.toInt() }.toIntArray()
+                question442Input.text.toString()
+                        .split(",")
+                        .map { it.toInt() }
+                        .toIntArray()
             }
             val resultList = Question442FindAllDuplicatesinanArray.findDuplicates(inputIntArray)
             var result = "["
