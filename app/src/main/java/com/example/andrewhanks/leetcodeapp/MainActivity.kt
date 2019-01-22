@@ -58,6 +58,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question11Button: Button
     private lateinit var question11Result: TextView
 
+    // layout for question 12
+    private lateinit var question12Input: EditText
+    private lateinit var question12Button: Button
+    private lateinit var question12Result: TextView
+
     // layout for question 43
     private lateinit var question43Input1: EditText
     private lateinit var question43Input2: EditText
@@ -82,6 +87,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion9()
         setupQuestion8()
         setupQuestion11()
+        setupQuestion12()
         setupQuestion43()
         setupQuestion442()
     }
@@ -303,6 +309,21 @@ class MainActivity : AppCompatActivity() {
             question11Result.text = result.toString()
         }
         question11Result = findViewById(R.id.question_11_result)
+    }
+
+    private fun setupQuestion12() {
+        question12Input = findViewById(R.id.question_12_input)
+        question12Button = findViewById(R.id.question_12)
+        question12Button.setOnClickListener {
+            val input = if (question12Input.text.isBlank()) {
+                3
+            } else {
+                question12Input.text.toString().toInt()
+            }
+            val result = Question012IntegertoRoman.intToRoman(input)
+            question12Result.text = result
+        }
+        question12Result = findViewById(R.id.question_12_result)
     }
 
     private fun setupQuestion43() {
