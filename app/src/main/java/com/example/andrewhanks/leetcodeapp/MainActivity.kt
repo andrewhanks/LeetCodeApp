@@ -68,6 +68,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question15Button: Button
     private lateinit var question15Result: TextView
 
+    // layout for question 16
+    private lateinit var question16Input1: EditText
+    private lateinit var question16Input2: EditText
+    private lateinit var question16Button: Button
+    private lateinit var question16Result: TextView
+
     // layout for question 43
     private lateinit var question43Input1: EditText
     private lateinit var question43Input2: EditText
@@ -94,6 +100,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion11()
         setupQuestion12()
         setupQuestion15()
+        setupQuestion16()
         setupQuestion43()
         setupQuestion442()
     }
@@ -370,6 +377,33 @@ class MainActivity : AppCompatActivity() {
             question15Result.text = result
         }
         question15Result = findViewById(R.id.question_15_result)
+    }
+
+    private fun setupQuestion16() {
+        question16Input1 = findViewById(R.id.question_16_input_1)
+        question16Input2 = findViewById(R.id.question_16_input_2)
+        question16Button = findViewById(R.id.question_16)
+        question16Button.setOnClickListener {
+            val inputNums = if (question16Input1.text.isBlank()) {
+                "1,1,-1,-1,3"
+                        .split(",")
+                        .map { it.toInt() }
+                        .toIntArray()
+            } else {
+                question16Input1.text.toString()
+                        .split(",")
+                        .map { it.toInt() }
+                        .toIntArray()
+            }
+            val inputTarget = if (question16Input2.text.isBlank()) {
+                -1
+            } else {
+                question16Input2.text.toString().toInt()
+            }
+            val result = Question0163SumClosest.threeSumClosest(inputNums, inputTarget)
+            question16Result.text = result.toString()
+        }
+        question16Result = findViewById(R.id.question_16_result)
     }
 
     private fun setupQuestion43() {
