@@ -80,6 +80,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question43Button: Button
     private lateinit var question43Result: TextView
 
+    // layout for question 46
+    private lateinit var question46Input: EditText
+    private lateinit var question46Button: Button
+    private lateinit var question46Result: TextView
+
     // layout for question 442
     private lateinit var question442Input: EditText
     private lateinit var question442Button: Button
@@ -102,6 +107,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion15()
         setupQuestion16()
         setupQuestion43()
+        setupQuestion46()
         setupQuestion442()
     }
 
@@ -246,7 +252,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question5Input.text.toString()
             }
-            val result = Question005LongestPalindromicSubstring.longestPalindrome(inputString)
+            val result = Question005LongestPalindromicSubstring.longestPalindromeWebSolution(inputString)
             question5Result.text = result
         }
         question5Result = findViewById(R.id.question_5_result)
@@ -426,6 +432,46 @@ class MainActivity : AppCompatActivity() {
         question43Result = findViewById(R.id.question_43_result)
     }
 
+    private fun setupQuestion46() {
+        question46Input = findViewById(R.id.question_46_input)
+        question46Button = findViewById(R.id.question_46)
+        question46Button.setOnClickListener {
+            val intArray = if (question46Input.text.isBlank()) {
+                "1,2,3"
+                        .split(',')
+                        .map { num -> num.toInt() }
+                        .toIntArray()
+            } else {
+                question46Input.text.toString()
+                        .split(',')
+                        .map { num -> num.toInt() }
+                        .toIntArray()
+            }
+            val resultList = Question046Permutations.permute(intArray)
+            var result = "["
+            resultList.forEachIndexed { firstIndex, firstI ->
+                resultList[firstIndex].forEachIndexed { secondIndex, secondI ->
+                    if (0 == secondIndex) {
+                        result += "["
+                    }
+                    result += secondI
+                    if (secondIndex == resultList[firstIndex].size - 1) {
+                        result += "]"
+                    } else {
+                        result += ","
+                    }
+                }
+                if (firstIndex == resultList.size - 1) {
+                    result += "]"
+                } else {
+                    result += ","
+                }
+            }
+            question46Result.text = result
+        }
+        question46Result = findViewById(R.id.question_46_result)
+    }
+
     private fun setupQuestion442() {
         question442Input = findViewById(R.id.question_442_input)
         question442Button = findViewById(R.id.question_442)
@@ -441,7 +487,7 @@ class MainActivity : AppCompatActivity() {
                         .map { it.toInt() }
                         .toIntArray()
             }
-            val resultList = Question442FindAllDuplicatesinanArray.findDuplicates(inputIntArray)
+            val resultList = Question442FindAllDuplicatesinanArray.findDuplicatesWebSolution(inputIntArray)
             var result = "["
             resultList.forEachIndexed { index, i ->
                 result += i

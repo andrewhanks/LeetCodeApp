@@ -4,7 +4,8 @@ class Question442FindAllDuplicatesinanArray {
 
     companion object {
 
-        fun findDuplicates(nums: IntArray): List<Int> {
+        // Mapping (values - 1) in this array to indexes
+        fun findDuplicatesWebSolution(nums: IntArray): List<Int> {
             val res = ArrayList<Int>()
             for (i in 0..nums.size - 1) {
                 val index = Math.abs(nums[i]) - 1

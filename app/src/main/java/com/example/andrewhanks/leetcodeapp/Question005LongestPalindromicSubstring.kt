@@ -4,7 +4,8 @@ class Question005LongestPalindromicSubstring {
 
     companion object {
 
-        fun longestPalindrome(s: String): String {
+        // Recording whether substrings of input are Palindrome from 1 to s.length characters
+        fun longestPalindromeWebSolution(s: String): String {
             if (s.isEmpty()) {
                 return ""
             }
