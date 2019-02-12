@@ -2,11 +2,11 @@ package com.example.andrewhanks.leetcodeapp
 
 import android.util.Log
 
-class Question011ContainerWithMostWater {
+class Question011_ContainerWithMostWater {
 
     companion object {
 
-        val TAG = Question011ContainerWithMostWater.javaClass.simpleName
+        val TAG = Question011_ContainerWithMostWater.javaClass.simpleName
 
         // brute force
         fun maxArea1(height: IntArray): Int {

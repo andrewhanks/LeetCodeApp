@@ -1,6 +1,6 @@
 package com.example.andrewhanks.leetcodeapp
 
-class Question0163SumClosest {
+class Question016_3SumClosest {
 
     companion object {
 

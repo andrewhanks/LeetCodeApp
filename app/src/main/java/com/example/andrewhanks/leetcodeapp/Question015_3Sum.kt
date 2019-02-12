@@ -1,7 +1,7 @@
 package com.example.andrewhanks.leetcodeapp
 
 
-class Question0153Sum {
+class Question015_3Sum {
 
     companion object {
 

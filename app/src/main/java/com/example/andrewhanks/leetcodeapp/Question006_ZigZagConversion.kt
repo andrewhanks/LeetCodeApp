@@ -1,6 +1,6 @@
 package com.example.andrewhanks.leetcodeapp
 
-class Question006ZigZagConversion {
+class Question006_ZigZagConversion {
 
     companion object {
 

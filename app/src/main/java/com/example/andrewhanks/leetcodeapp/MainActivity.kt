@@ -74,6 +74,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question16Button: Button
     private lateinit var question16Result: TextView
 
+    // layout for question 17
+    private lateinit var question17Input: EditText
+    private lateinit var question17Button: Button
+    private lateinit var question17Result: TextView
+
     // layout for question 43
     private lateinit var question43Input1: EditText
     private lateinit var question43Input2: EditText
@@ -106,6 +111,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion12()
         setupQuestion15()
         setupQuestion16()
+        setupQuestion17()
         setupQuestion43()
         setupQuestion46()
         setupQuestion442()
@@ -130,7 +136,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 numberSum = question1Input2.text.toString().toInt()
             }
-            val resultArray = Question001TwoSum.twoSum(numberArray, numberSum)
+            val resultArray = Question001_TwoSum.twoSum(numberArray, numberSum)
             var result = "["
             resultArray.forEachIndexed { index, i ->
                 result += i
@@ -205,7 +211,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question3Input.text.toString()
             }
-            val result = Question003LongestSubstringWithoutRepeatingCharacters
+            val result = Question003_LongestSubstringWithoutRepeatingCharacters
                     .lengthOfLongestSubstring(inputString)
             question3Result.text = result.toString()
         }
@@ -236,7 +242,7 @@ class MainActivity : AppCompatActivity() {
                     numberArray2[index] = s.toInt()
                 }
             }
-            val result = Question004MedianofTwoSortedArrays
+            val result = Question004_MedianofTwoSortedArrays
                     .findMedianSortedArrays(numberArray1, numberArray2)
             question4Result.text = result.toString()
         }
@@ -252,7 +258,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question5Input.text.toString()
             }
-            val result = Question005LongestPalindromicSubstring.longestPalindromeWebSolution(inputString)
+            val result = Question005_LongestPalindromicSubstring.longestPalindromeWebSolution(inputString)
             question5Result.text = result
         }
         question5Result = findViewById(R.id.question_5_result)
@@ -273,7 +279,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question6Input2.text.toString().toInt()
             }
-            val result = Question006ZigZagConversion.convert(inputString, inputRows)
+            val result = Question006_ZigZagConversion.convert(inputString, inputRows)
             question6Result.text = result
         }
         question6Result = findViewById(R.id.question_6_result)
@@ -288,7 +294,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question8Input.text.toString()
             }
-            val result = Question008StringtoInteger.myAtoi(inputString)
+            val result = Question008_StringtoInteger.myAtoi(inputString)
             question8Result.text = result.toString()
         }
         question8Result = findViewById(R.id.question_8_result)
@@ -303,7 +309,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question9Input.text.toString().toInt()
             }
-            val result = Question009PalindromeNumber.isPalindrome(inputInt)
+            val result = Question009_PalindromeNumber.isPalindrome(inputInt)
             question9Result.text = result.toString()
         }
         question9Result = findViewById(R.id.question_9_result)
@@ -324,7 +330,7 @@ class MainActivity : AppCompatActivity() {
                     numberArray[index] = s.toInt()
                 }
             }
-            val result = Question011ContainerWithMostWater.maxArea2(numberArray)
+            val result = Question011_ContainerWithMostWater.maxArea2(numberArray)
             question11Result.text = result.toString()
         }
         question11Result = findViewById(R.id.question_11_result)
@@ -339,7 +345,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question12Input.text.toString().toInt()
             }
-            val result = Question012IntegertoRoman.intToRoman(input)
+            val result = Question012_IntegertoRoman.intToRoman(input)
             question12Result.text = result
         }
         question12Result = findViewById(R.id.question_12_result)
@@ -360,7 +366,7 @@ class MainActivity : AppCompatActivity() {
                         .map { num -> num.toInt() }
                         .toIntArray()
             }
-            val resultList = Question0153Sum.threeSumWebSolution(intArray)
+            val resultList = Question015_3Sum.threeSumWebSolution(intArray)
             var result = "["
             resultList.forEachIndexed { firstIndex, firstI ->
                 resultList[firstIndex].forEachIndexed { secondIndex, secondI ->
@@ -406,10 +412,25 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question16Input2.text.toString().toInt()
             }
-            val result = Question0163SumClosest.threeSumClosest(inputNums, inputTarget)
+            val result = Question016_3SumClosest.threeSumClosest(inputNums, inputTarget)
             question16Result.text = result.toString()
         }
         question16Result = findViewById(R.id.question_16_result)
+    }
+
+    private fun setupQuestion17() {
+        question17Input = findViewById(R.id.question_17_input)
+        question17Button = findViewById(R.id.question_17)
+        question17Button.setOnClickListener {
+            val number = if (question17Input.text.isBlank()) {
+                (23).toString()
+            } else {
+                question12Input.text.toString()
+            }
+            val result = Question017_LetterCombinationsofaPhoneNumber.letterCombinations(number)
+            question17Result.text = result.toString()
+        }
+        question17Result = findViewById(R.id.question_17_result)
     }
 
     private fun setupQuestion43() {
@@ -426,7 +447,7 @@ class MainActivity : AppCompatActivity() {
                 stringNumber1 = question43Input1.text.toString()
                 stringNumber2 = question43Input2.text.toString()
             }
-            val result = Question043MultiplyStrings.multiply(stringNumber1, stringNumber2)
+            val result = Question043_MultiplyStrings.multiply(stringNumber1, stringNumber2)
             question43Result.text = result
         }
         question43Result = findViewById(R.id.question_43_result)
@@ -447,7 +468,7 @@ class MainActivity : AppCompatActivity() {
                         .map { num -> num.toInt() }
                         .toIntArray()
             }
-            val resultList = Question046Permutations.permute(intArray)
+            val resultList = Question046_Permutations.permute(intArray)
             var result = "["
             resultList.forEachIndexed { firstIndex, firstI ->
                 resultList[firstIndex].forEachIndexed { secondIndex, secondI ->
@@ -487,7 +508,7 @@ class MainActivity : AppCompatActivity() {
                         .map { it.toInt() }
                         .toIntArray()
             }
-            val resultList = Question442FindAllDuplicatesinanArray.findDuplicatesWebSolution(inputIntArray)
+            val resultList = Question442_FindAllDuplicatesinanArray.findDuplicatesWebSolution(inputIntArray)
             var result = "["
             resultList.forEachIndexed { index, i ->
                 result += i

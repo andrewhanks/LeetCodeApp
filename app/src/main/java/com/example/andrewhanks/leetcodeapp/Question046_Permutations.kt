@@ -1,7 +1,7 @@
 package com.example.andrewhanks.leetcodeapp
 
 
-class Question046Permutations {
+class Question046_Permutations {
 
     companion object {
 

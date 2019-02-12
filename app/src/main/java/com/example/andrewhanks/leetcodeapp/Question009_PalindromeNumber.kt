@@ -1,6 +1,6 @@
 package com.example.andrewhanks.leetcodeapp
 
-class Question009PalindromeNumber {
+class Question009_PalindromeNumber {
 
     companion object {
 

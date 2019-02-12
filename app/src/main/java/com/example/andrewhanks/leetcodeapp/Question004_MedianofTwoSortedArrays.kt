@@ -1,6 +1,6 @@
 package com.example.andrewhanks.leetcodeapp
 
-class Question004MedianofTwoSortedArrays {
+class Question004_MedianofTwoSortedArrays {
 
     companion object {
 

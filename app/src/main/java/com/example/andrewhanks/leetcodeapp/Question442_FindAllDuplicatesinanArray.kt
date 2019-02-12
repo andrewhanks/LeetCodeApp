@@ -1,6 +1,6 @@
 package com.example.andrewhanks.leetcodeapp
 
-class Question442FindAllDuplicatesinanArray {
+class Question442_FindAllDuplicatesinanArray {
 
     companion object {
 

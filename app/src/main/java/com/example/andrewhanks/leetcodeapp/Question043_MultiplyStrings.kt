@@ -2,7 +2,7 @@ package com.example.andrewhanks.leetcodeapp
 
 import android.util.Log
 
-class Question043MultiplyStrings {
+class Question043_MultiplyStrings {
 
     companion object {
 
