@@ -79,6 +79,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question17Button: Button
     private lateinit var question17Result: TextView
 
+    // layout for question 19
+    private lateinit var question19Input1: EditText
+    private lateinit var question19Input2: EditText
+    private lateinit var question19Button: Button
+    private lateinit var question19Result: TextView
+
     // layout for question 43
     private lateinit var question43Input1: EditText
     private lateinit var question43Input2: EditText
@@ -112,6 +118,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion15()
         setupQuestion16()
         setupQuestion17()
+        setupQuestion19()
         setupQuestion43()
         setupQuestion46()
         setupQuestion442()
@@ -431,6 +438,52 @@ class MainActivity : AppCompatActivity() {
             question17Result.text = result.toString()
         }
         question17Result = findViewById(R.id.question_17_result)
+    }
+
+    private fun setupQuestion19() {
+        question19Input1 = findViewById(R.id.question_19_input_1)
+        question19Input2 = findViewById(R.id.question_19_input_2)
+        question19Button = findViewById(R.id.question_19)
+        question19Button.setOnClickListener {
+            var listNode = ListNode()
+            if (question19Input1.text.isBlank()) {
+                listNode.`val` = 1
+                listNode.next = ListNode(2)
+                listNode.next!!.next = ListNode(3)
+                listNode.next!!.next!!.next = ListNode(4)
+                listNode.next!!.next!!.next!!.next = ListNode(5)
+            } else {
+                val stringArray = question19Input1.text.toString()
+                        .replace(" ", "").split(",")
+
+                listNode = ListNode(stringArray[0].toInt())
+                var tempListNode1 = listNode
+                for (count in 1..stringArray.size - 1) {
+                    tempListNode1 = tempListNode1.next!!
+                    tempListNode1 = ListNode(stringArray[count].toInt())
+                }
+            }
+            val n = if (question19Input2.text.isBlank()) {
+                2
+            } else {
+                question19Input2.text.toString().toInt()
+            }
+            val resultListNode = Question019_RemoveNthNodeFromEndofList.removeNthFromEnd(listNode, n)
+            if (null == resultListNode) {
+                return@setOnClickListener
+            }
+            var tempResultList = resultListNode
+            var result = "[" + tempResultList!!.`val`.toString()
+            tempResultList = tempResultList.next
+            while (null != tempResultList!!.next) {
+                result = result + "," + tempResultList.`val`
+                tempResultList = tempResultList.next
+            }
+            result = result + "," + tempResultList.`val`
+            result += "]"
+            question19Result.text = result
+        }
+        question19Result = findViewById(R.id.question_19_result)
     }
 
     private fun setupQuestion43() {
