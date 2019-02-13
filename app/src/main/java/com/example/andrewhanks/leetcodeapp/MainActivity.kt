@@ -187,7 +187,7 @@ class MainActivity : AppCompatActivity() {
                     tempListNode2 = ListNode(stringArray1[count].toInt())
                 }
             }
-            val resultListNode = Question002AddTwoNumbers.addTwoNumbers(listNode1, listNode2)
+            val resultListNode = Question002_AddTwoNumbers.addTwoNumbers(listNode1, listNode2)
             var tempResultList = resultListNode
             var result = "[" + tempResultList!!.`val`.toString()
             tempResultList = tempResultList.next
