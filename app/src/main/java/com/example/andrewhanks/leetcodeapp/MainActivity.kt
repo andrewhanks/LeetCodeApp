@@ -85,6 +85,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question19Button: Button
     private lateinit var question19Result: TextView
 
+    // layout for question 22
+    private lateinit var question22Input: EditText
+    private lateinit var question22Button: Button
+    private lateinit var question22Result: TextView
+
     // layout for question 43
     private lateinit var question43Input1: EditText
     private lateinit var question43Input2: EditText
@@ -119,6 +124,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion16()
         setupQuestion17()
         setupQuestion19()
+        setupQuestion22()
         setupQuestion43()
         setupQuestion46()
         setupQuestion442()
@@ -484,6 +490,31 @@ class MainActivity : AppCompatActivity() {
             question19Result.text = result
         }
         question19Result = findViewById(R.id.question_19_result)
+    }
+
+    private fun setupQuestion22() {
+        question22Input = findViewById(R.id.question_22_input)
+        question22Button = findViewById(R.id.question_22)
+        question22Button.setOnClickListener {
+            val input = if (question22Input.text.isBlank()) {
+                3
+            } else {
+                question22Input.text.toString().toInt()
+            }
+            val resultList = Question022_GenerateParentheses.generateParenthesisWebSolution(input)
+            var result = "["
+            resultList.forEachIndexed { index, string ->
+                result += "\""
+                result += string
+                if (index == resultList.size - 1) {
+                    result += "\"]"
+                } else {
+                    result += "\","
+                }
+            }
+            question22Result.text = result
+        }
+        question22Result = findViewById(R.id.question_22_result)
     }
 
     private fun setupQuestion43() {
