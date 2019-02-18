@@ -90,6 +90,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var question22Button: Button
     private lateinit var question22Result: TextView
 
+    // layout for question 23
+    private lateinit var question23Input: EditText
+    private lateinit var question23Button: Button
+    private lateinit var question23Result: TextView
+
     // layout for question 43
     private lateinit var question43Input1: EditText
     private lateinit var question43Input2: EditText
@@ -125,6 +130,7 @@ class MainActivity : AppCompatActivity() {
         setupQuestion17()
         setupQuestion19()
         setupQuestion22()
+        setupQuestion23()
         setupQuestion43()
         setupQuestion46()
         setupQuestion442()
@@ -515,6 +521,68 @@ class MainActivity : AppCompatActivity() {
             question22Result.text = result
         }
         question22Result = findViewById(R.id.question_22_result)
+    }
+
+    private fun setupQuestion23() {
+        question23Input = findViewById(R.id.question_23_input)
+        question23Button = findViewById(R.id.question_23)
+        question23Button.setOnClickListener {
+            var listNodeArray: Array<ListNode?> = emptyArray()
+            if (question23Input.text.isBlank()) {
+
+//                listNodeArray = Array(3) { null }
+//                val listNode1 = ListNode(1)
+//                listNode1.next = ListNode(4)
+//                listNode1.next!!.next = ListNode(5)
+//                listNodeArray[0] = listNode1
+//                val listNode2 = ListNode(1)
+//                listNode2.next = ListNode(3)
+//                listNode2.next!!.next = ListNode(4)
+//                listNodeArray[1] = listNode2
+//                val listNode3 = ListNode(2)
+//                listNode3.next = ListNode(6)
+//                listNodeArray[2] = listNode3
+//                listNodeArray = arrayOf(listNode1, listNode2, listNode3)
+
+                listNodeArray = Array(2) { null }
+                val listNode1 = ListNode(0)
+                listNodeArray[0] = listNode1
+                val listNode2 = ListNode(1)
+                listNodeArray[1] = listNode2
+                listNodeArray = arrayOf(listNode1, listNode2)
+
+            } else {
+                val stringArray = question23Input.text.toString()
+                        .replace(" ", "").split(",")
+
+                listNodeArray = Array(stringArray.size) { null }
+
+                stringArray.forEachIndexed { index, list ->
+                    val elements = list.split("->")
+                    val headNode = ListNode(elements[0].toInt())
+                    var currentNode = headNode
+                    for (i in 1..elements.size - 1) {
+                        val listNode = ListNode(i)
+                        currentNode.next = listNode
+                        currentNode = listNode
+                    }
+                    listNodeArray[index] = headNode
+                }
+            }
+            val resultListNode = Question023_MergekSortedLists.mergeKLists(listNodeArray)
+                    ?: return@setOnClickListener
+            var tempResultList: ListNode? = resultListNode
+            var result = "[" + tempResultList!!.`val`.toString()
+            tempResultList = tempResultList!!.next
+            while (null != tempResultList!!.next) {
+                result = result + "," + tempResultList.`val`
+                tempResultList = tempResultList.next
+            }
+            result = result + "," + tempResultList.`val`
+            result += "]"
+            question23Result.text = result
+        }
+        question23Result = findViewById(R.id.question_23_result)
     }
 
     private fun setupQuestion43() {

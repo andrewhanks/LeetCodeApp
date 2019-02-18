@@ -46,6 +46,8 @@
 
             <include layout="@layout/item_question_022" />
 
+            <include layout="@layout/item_question_023" />
+
             <include layout="@layout/item_question_043" />
 
             <include layout="@layout/item_question_046" />
