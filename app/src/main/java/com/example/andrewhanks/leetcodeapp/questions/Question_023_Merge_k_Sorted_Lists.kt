@@ -1,6 +1,8 @@
-package com.example.andrewhanks.leetcodeapp
+package com.example.andrewhanks.leetcodeapp.questions
 
-class Question023_MergekSortedLists {
+import com.example.andrewhanks.leetcodeapp.models.ListNode
+
+class Question_023_Merge_k_Sorted_Lists {
 
     companion object {
 

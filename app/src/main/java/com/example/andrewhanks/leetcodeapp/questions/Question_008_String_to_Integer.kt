@@ -1,6 +1,6 @@
-package com.example.andrewhanks.leetcodeapp
+package com.example.andrewhanks.leetcodeapp.questions
 
-class Question008_StringtoInteger {
+class Question_008_String_to_Integer {
 
     companion object {
 

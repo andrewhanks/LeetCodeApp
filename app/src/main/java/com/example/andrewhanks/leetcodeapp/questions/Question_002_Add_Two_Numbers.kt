@@ -1,6 +1,8 @@
-package com.example.andrewhanks.leetcodeapp
+package com.example.andrewhanks.leetcodeapp.questions
 
-class Question002_AddTwoNumbers {
+import com.example.andrewhanks.leetcodeapp.models.ListNode
+
+class Question_002_Add_Two_Numbers {
 
     companion object {
 

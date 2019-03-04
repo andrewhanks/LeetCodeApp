@@ -1,6 +1,6 @@
-package com.example.andrewhanks.leetcodeapp
+package com.example.andrewhanks.leetcodeapp.questions
 
-class Question012_IntegertoRoman {
+class Question_012_Integer_to_Roman {
 
     companion object {
 

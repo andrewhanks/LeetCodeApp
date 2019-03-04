@@ -1,6 +1,6 @@
-package com.example.andrewhanks.leetcodeapp
+package com.example.andrewhanks.leetcodeapp.questions
 
-class Question005_LongestPalindromicSubstring {
+class Question_005_Longest_Palindromic_Substring {
 
     companion object {
 

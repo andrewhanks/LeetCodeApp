@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.example.andrewhanks.leetcodeapp.models.ListNode
+import com.example.andrewhanks.leetcodeapp.questions.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -155,7 +157,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 numberSum = question1Input2.text.toString().toInt()
             }
-            val resultArray = Question001_TwoSum.twoSum(numberArray, numberSum)
+            val resultArray = Question_001_Two_Sum.twoSum(numberArray, numberSum)
             var result = "["
             resultArray.forEachIndexed { index, i ->
                 result += i
@@ -206,7 +208,7 @@ class MainActivity : AppCompatActivity() {
                     tempListNode2 = ListNode(stringArray1[count].toInt())
                 }
             }
-            val resultListNode = Question002_AddTwoNumbers.addTwoNumbers(listNode1, listNode2)
+            val resultListNode = Question_002_Add_Two_Numbers.addTwoNumbers(listNode1, listNode2)
             var tempResultList = resultListNode
             var result = "[" + tempResultList!!.`val`.toString()
             tempResultList = tempResultList.next
@@ -230,7 +232,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question3Input.text.toString()
             }
-            val result = Question003_LongestSubstringWithoutRepeatingCharacters
+            val result = Question_003_Longest_Substring_Without_Repeating_Characters
                     .lengthOfLongestSubstring(inputString)
             question3Result.text = result.toString()
         }
@@ -261,7 +263,7 @@ class MainActivity : AppCompatActivity() {
                     numberArray2[index] = s.toInt()
                 }
             }
-            val result = Question004_MedianofTwoSortedArrays
+            val result = Question_004_Median_of_Two_Sorted_Arrays
                     .findMedianSortedArrays(numberArray1, numberArray2)
             question4Result.text = result.toString()
         }
@@ -277,7 +279,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question5Input.text.toString()
             }
-            val result = Question005_LongestPalindromicSubstring.longestPalindromeWebSolution(inputString)
+            val result = Question_005_Longest_Palindromic_Substring.longestPalindromeWebSolution(inputString)
             question5Result.text = result
         }
         question5Result = findViewById(R.id.question_5_result)
@@ -298,7 +300,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question6Input2.text.toString().toInt()
             }
-            val result = Question006_ZigZagConversion.convert(inputString, inputRows)
+            val result = Question_006_Zig_Zag_Conversion.convert(inputString, inputRows)
             question6Result.text = result
         }
         question6Result = findViewById(R.id.question_6_result)
@@ -313,7 +315,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question8Input.text.toString()
             }
-            val result = Question008_StringtoInteger.myAtoi(inputString)
+            val result = Question_008_String_to_Integer.myAtoi(inputString)
             question8Result.text = result.toString()
         }
         question8Result = findViewById(R.id.question_8_result)
@@ -328,7 +330,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question9Input.text.toString().toInt()
             }
-            val result = Question009_PalindromeNumber.isPalindrome(inputInt)
+            val result = Question_009_Palindrome_Number.isPalindrome(inputInt)
             question9Result.text = result.toString()
         }
         question9Result = findViewById(R.id.question_9_result)
@@ -349,7 +351,7 @@ class MainActivity : AppCompatActivity() {
                     numberArray[index] = s.toInt()
                 }
             }
-            val result = Question011_ContainerWithMostWater.maxArea2(numberArray)
+            val result = Question_011_Container_With_Most_Water.maxArea2(numberArray)
             question11Result.text = result.toString()
         }
         question11Result = findViewById(R.id.question_11_result)
@@ -364,7 +366,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question12Input.text.toString().toInt()
             }
-            val result = Question012_IntegertoRoman.intToRoman(input)
+            val result = Question_012_Integer_to_Roman.intToRoman(input)
             question12Result.text = result
         }
         question12Result = findViewById(R.id.question_12_result)
@@ -385,7 +387,7 @@ class MainActivity : AppCompatActivity() {
                         .map { num -> num.toInt() }
                         .toIntArray()
             }
-            val resultList = Question015_3Sum.threeSumWebSolution(intArray)
+            val resultList = Question_015_3Sum.threeSumWebSolution(intArray)
             var result = "["
             resultList.forEachIndexed { firstIndex, firstI ->
                 resultList[firstIndex].forEachIndexed { secondIndex, secondI ->
@@ -431,7 +433,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question16Input2.text.toString().toInt()
             }
-            val result = Question016_3SumClosest.threeSumClosest(inputNums, inputTarget)
+            val result = Question_016_3Sum_Closest.threeSumClosest(inputNums, inputTarget)
             question16Result.text = result.toString()
         }
         question16Result = findViewById(R.id.question_16_result)
@@ -446,7 +448,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question12Input.text.toString()
             }
-            val result = Question017_LetterCombinationsofaPhoneNumber.letterCombinations(number)
+            val result = Question_017_Letter_Combinations_of_a_Phone_Number.letterCombinations(number)
             question17Result.text = result.toString()
         }
         question17Result = findViewById(R.id.question_17_result)
@@ -480,7 +482,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question19Input2.text.toString().toInt()
             }
-            val resultListNode = Question019_RemoveNthNodeFromEndofList.removeNthFromEnd(listNode, n)
+            val resultListNode = Question_019_Remove_Nth_Node_From_End_of_List.removeNthFromEnd(listNode, n)
             if (null == resultListNode) {
                 return@setOnClickListener
             }
@@ -507,7 +509,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 question22Input.text.toString().toInt()
             }
-            val resultList = Question022_GenerateParentheses.generateParenthesisWebSolution(input)
+            val resultList = Question_022_Generate_Parentheses.generateParenthesisWebSolution(input)
             var result = "["
             resultList.forEachIndexed { index, string ->
                 result += "\""
@@ -530,26 +532,19 @@ class MainActivity : AppCompatActivity() {
             var listNodeArray: Array<ListNode?> = emptyArray()
             if (question23Input.text.isBlank()) {
 
-//                listNodeArray = Array(3) { null }
-//                val listNode1 = ListNode(1)
-//                listNode1.next = ListNode(4)
-//                listNode1.next!!.next = ListNode(5)
-//                listNodeArray[0] = listNode1
-//                val listNode2 = ListNode(1)
-//                listNode2.next = ListNode(3)
-//                listNode2.next!!.next = ListNode(4)
-//                listNodeArray[1] = listNode2
-//                val listNode3 = ListNode(2)
-//                listNode3.next = ListNode(6)
-//                listNodeArray[2] = listNode3
-//                listNodeArray = arrayOf(listNode1, listNode2, listNode3)
-
-                listNodeArray = Array(2) { null }
-                val listNode1 = ListNode(0)
+                listNodeArray = Array(3) { null }
+                val listNode1 = ListNode(1)
+                listNode1.next = ListNode(4)
+                listNode1.next!!.next = ListNode(5)
                 listNodeArray[0] = listNode1
                 val listNode2 = ListNode(1)
+                listNode2.next = ListNode(3)
+                listNode2.next!!.next = ListNode(4)
                 listNodeArray[1] = listNode2
-                listNodeArray = arrayOf(listNode1, listNode2)
+                val listNode3 = ListNode(2)
+                listNode3.next = ListNode(6)
+                listNodeArray[2] = listNode3
+                listNodeArray = arrayOf(listNode1, listNode2, listNode3)
 
             } else {
                 val stringArray = question23Input.text.toString()
@@ -569,7 +564,7 @@ class MainActivity : AppCompatActivity() {
                     listNodeArray[index] = headNode
                 }
             }
-            val resultListNode = Question023_MergekSortedLists.mergeKLists(listNodeArray)
+            val resultListNode = Question_023_Merge_k_Sorted_Lists.mergeKLists(listNodeArray)
                     ?: return@setOnClickListener
             var tempResultList: ListNode? = resultListNode
             var result = "[" + tempResultList!!.`val`.toString()
@@ -599,7 +594,7 @@ class MainActivity : AppCompatActivity() {
                 stringNumber1 = question43Input1.text.toString()
                 stringNumber2 = question43Input2.text.toString()
             }
-            val result = Question043_MultiplyStrings.multiply(stringNumber1, stringNumber2)
+            val result = Question_043_Multiply_Strings.multiply(stringNumber1, stringNumber2)
             question43Result.text = result
         }
         question43Result = findViewById(R.id.question_43_result)
@@ -620,7 +615,7 @@ class MainActivity : AppCompatActivity() {
                         .map { num -> num.toInt() }
                         .toIntArray()
             }
-            val resultList = Question046_Permutations.permute(intArray)
+            val resultList = Question_046_Permutations.permute(intArray)
             var result = "["
             resultList.forEachIndexed { firstIndex, firstI ->
                 resultList[firstIndex].forEachIndexed { secondIndex, secondI ->
@@ -660,7 +655,7 @@ class MainActivity : AppCompatActivity() {
                         .map { it.toInt() }
                         .toIntArray()
             }
-            val resultList = Question442_FindAllDuplicatesinanArray.findDuplicatesWebSolution(inputIntArray)
+            val resultList = Question_442_Find_All_Duplicates_in_an_Array.findDuplicatesWebSolution(inputIntArray)
             var result = "["
             resultList.forEachIndexed { index, i ->
                 result += i

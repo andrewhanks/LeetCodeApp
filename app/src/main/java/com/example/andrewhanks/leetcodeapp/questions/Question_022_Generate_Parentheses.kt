@@ -1,6 +1,6 @@
-package com.example.andrewhanks.leetcodeapp
+package com.example.andrewhanks.leetcodeapp.questions
 
-class Question022_GenerateParentheses {
+class Question_022_Generate_Parentheses {
 
     companion object {
 

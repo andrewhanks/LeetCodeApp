@@ -1,6 +1,6 @@
-package com.example.andrewhanks.leetcodeapp
+package com.example.andrewhanks.leetcodeapp.questions
 
-class Question004_MedianofTwoSortedArrays {
+class Question_004_Median_of_Two_Sorted_Arrays {
 
     companion object {
 

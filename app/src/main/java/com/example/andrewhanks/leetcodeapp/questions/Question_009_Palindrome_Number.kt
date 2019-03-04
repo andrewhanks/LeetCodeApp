@@ -1,6 +1,6 @@
-package com.example.andrewhanks.leetcodeapp
+package com.example.andrewhanks.leetcodeapp.questions
 
-class Question009_PalindromeNumber {
+class Question_009_Palindrome_Number {
 
     companion object {
 

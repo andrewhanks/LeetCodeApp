@@ -1,6 +1,8 @@
-package com.example.andrewhanks.leetcodeapp
+package com.example.andrewhanks.leetcodeapp.questions
 
-class Question019_RemoveNthNodeFromEndofList {
+import com.example.andrewhanks.leetcodeapp.models.ListNode
+
+class Question_019_Remove_Nth_Node_From_End_of_List {
 
     companion object {
 

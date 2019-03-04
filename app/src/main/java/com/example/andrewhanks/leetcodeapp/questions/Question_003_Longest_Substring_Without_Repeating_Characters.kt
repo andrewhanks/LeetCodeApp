@@ -1,6 +1,6 @@
-package com.example.andrewhanks.leetcodeapp
+package com.example.andrewhanks.leetcodeapp.questions
 
-class Question003_LongestSubstringWithoutRepeatingCharacters {
+class Question_003_Longest_Substring_Without_Repeating_Characters {
 
     companion object {
 

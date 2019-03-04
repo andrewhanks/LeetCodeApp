@@ -1,8 +1,8 @@
-package com.example.andrewhanks.leetcodeapp
+package com.example.andrewhanks.leetcodeapp.questions
 
 import android.util.Log
 
-class Question043_MultiplyStrings {
+class Question_043_Multiply_Strings {
 
     companion object {
 

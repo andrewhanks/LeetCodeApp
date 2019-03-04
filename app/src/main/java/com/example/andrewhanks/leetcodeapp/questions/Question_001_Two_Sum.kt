@@ -1,6 +1,6 @@
-package com.example.andrewhanks.leetcodeapp
+package com.example.andrewhanks.leetcodeapp.questions
 
-class Question001_TwoSum {
+class Question_001_Two_Sum {
 
     companion object {
 

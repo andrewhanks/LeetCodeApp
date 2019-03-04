@@ -1,6 +1,6 @@
-package com.example.andrewhanks.leetcodeapp
+package com.example.andrewhanks.leetcodeapp.questions
 
-class Question017_LetterCombinationsofaPhoneNumber {
+class Question_017_Letter_Combinations_of_a_Phone_Number {
 
     companion object {
 
